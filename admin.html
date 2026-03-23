@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header>🔥 Admin Dashboard</header>
+
+<div class="container">
+
+  <!-- Admin Login -->
+  <div id="login-card" class="card">
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Email" />
+    <input type="password" id="adminPassword" placeholder="Password" />
+    <button onclick="adminLogin()">Login</button>
+    <p id="loginStatus"></p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" style="display:none;">
+
+    <!-- Users Section -->
+    <div class="card">
+      <h2>Users Management</h2>
+      <div id="usersList"></div>
+    </div>
+
+    <!-- Stocks Section -->
+    <div class="card">
+      <h2>Stocks Management</h2>
+      <div id="stocksList"></div>
+      <h3>Add New Stock</h3>
+      <input type="text" id="stockName" placeholder="Stock Name">
+      <input type="number" id="stockPrice" placeholder="Price">
+      <button onclick="addStock()">Add Stock</button>
+    </div>
+
+    <!-- Announcements -->
+    <div class="card">
+      <h2>Announcements</h2>
+      <textarea id="announcementText" placeholder="Write announcement..."></textarea>
+      <button onclick="postAnnouncement()">Post Announcement</button>
+      <div id="announcementsList"></div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="card">
+      <h2>Analytics</h2>
+      <button onclick="viewStats()">View Stats</button>
+      <div id="stats"></div>
+    </div>
+
+    <!-- Database Controls -->
+    <div class="card">
+      <h2>Database Controls</h2>
+      <button onclick="backupDatabase()">Backup DB</button>
+      <button onclick="restoreDatabase()">Restore DB</button>
+      <button onclick="exportData()">Export Data</button>
+      <input type="file" id="importFile">
+      <button onclick="importData()">Import Data</button>
+    </div>
+
+    <!-- Logs -->
+    <div class="card">
+      <h2>Admin Logs</h2>
+      <button onclick="loadLogs()">View Logs</button>
+      <div id="logsList"></div>
+    </div>
+
+    <!-- System Controls -->
+    <div class="card">
+      <h2>System</h2>
+      <button onclick="pauseTrading()">Pause Trading</button>
+      <button onclick="resumeTrading()">Resume Trading</button>
+      <button onclick="simulateMarketEvent()">Simulate Market Event</button>
+      <button onclick="globalBalanceReset()">Reset All Balances</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
